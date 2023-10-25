@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"lambda_IAM","Source":"./modules/lambda_IAM","Dir":"modules/lambda_IAM"},{"Key":"lambda_function","Source":"./modules/lambda_function","Dir":"modules/lambda_function"}]}
