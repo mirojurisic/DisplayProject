@@ -7,6 +7,7 @@
 # Security Group
 # key-pair
 # EC2 instance definition - AMI, Instance type, Key pair, Subnet ID, Security group ID
+# S3 bucket to hold webapp files
 
 # Create a VPC
 resource "aws_vpc" "app_vpc" {
@@ -184,22 +185,4 @@ resource "aws_iam_instance_profile" "instance_profile" {
   role = aws_iam_role.ec2_iam_role.name
 }
 
-
-
-# Our goal is to create an instance profile with a role that allows EC2 to read from S3. Therefore we need to define two things: Who is allowed and what is allowed:
-
-# EC2 is allowed (EC2 assumes role) to ..
-# Read S3
-# # create sns topic
-# resource "aws_sns_topic" "webserver_notifications" {
-#   name = "your-sns-topic-name"
-#   # Add any additional configurations as needed
-# }
-# # create sns subscription
-# resource "aws_sns_topic_subscription" "webserver_notifications" {
-#   topic_arn = aws_sns_topic.webserver_notifications.arn
-#   protocol  = "email"
-#   endpoint  = "your-email-address"
-#   # Add any additional configurations as needed
-# }
 
