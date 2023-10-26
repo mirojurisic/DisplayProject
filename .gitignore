@@ -1,10 +1,4 @@
-src/1_Terraform_lambda/.terraform.lock.hcl
-src/1_Terraform_lambda/terraform.tfstate
-src/1_Terraform_lambda/terraform.tfstate.backup
-src/1_Terraform_lambda/.terraform/providers/registry.terraform.io/*
-src/1_Terraform_lambda/artifacts/simple_hello.zip
-src/2_Terraform_Apache_S3/.terraform.lock.hcl
-src/2_Terraform_Apache_S3/.terraform.tfstate.lock.info
-src/2_Terraform_Apache_S3/terraform.tfstate
-src/2_Terraform_Apache_S3/terraform.tfstate.backup
-src/2_Terraform_Apache_S3/.terraform/providers/registry.terraform.io/*
+*.tfstate*
+*.lock*
+*.terraform*
+*.zip

@@ -39,6 +39,6 @@ Simple hello_world function that just prints text.
 ## 2) Apache on EC2 with Terraform
 Download simple website, store it in S3 bucket, spin up EC2 instance using Terraform and deploy it with webapp code from S3 code
 
-## 3) Trigger lambda from Apache
+## 3) Private and public subnets with NAT
 Connect one and two to log ip addresses from which the request was made.
 Apache will trigger lambda and send IP.
