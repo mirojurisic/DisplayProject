@@ -2,3 +2,5 @@
 *.lock*
 *.terraform*
 *.zip
+*.package-lock.json
+**/node_modules/*

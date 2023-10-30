@@ -42,3 +42,6 @@ Download simple website, store it in S3 bucket, spin up EC2 instance using Terra
 ## 3) Private and public subnets with NAT
 Connect one and two to log ip addresses from which the request was made.
 Apache will trigger lambda and send IP.
+## 4) Static hosting (S3) with CloudFront, Route53 and Terraform
+## 6_
+https://gist.github.com/aerrity/fd393e5511106420fba0c9602cc05d35
