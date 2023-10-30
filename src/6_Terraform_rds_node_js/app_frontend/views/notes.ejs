@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <style>
+        th,
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<!-- add title -->
+<h1 class="title">Current notes in mySQL DB</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Contents</th>
+    </tr>
+
+    <% for (var i=0; i < notes.length; i++) { %>
+        <tr>
+            <td>
+                <%= notes[i].id %>
+            </td>
+            <td>
+                <%= notes[i].title %>
+            </td>
+            <td>
+                <%= notes[i].contents %>
+            </td>
+
+        </tr>
+        <% } %>
+</table>
+<!-- add space -->
+<div style="height: 50px;"></div>
+<form method="post">
+    <div class="form-group">
+        <label>Item's ID to be delete:</label>
+        <input type="text" class="form-control" name="id">
+        <button type="submit" class="btn btn-primary btn-lg" formaction="/deleteNote">Delete note</button>
+    </div>
+</form>
+
+</html>
