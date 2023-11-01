@@ -19,3 +19,21 @@ module "lambda_function" {
   runtime             = local.runtime
 
 }
+resource "aws_cloudwatch_event_rule" "simple_lambda_event_rule" {
+  name                = "simple-lambda-event-rule"
+  description         = "retry scheduled every 2 min"
+  schedule_expression = "rate(2 minutes)"
+}
+
+resource "aws_cloudwatch_event_target" "event_lambda_target" {
+  arn  = module.lambda_function.lambda_function_arn
+  rule = aws_cloudwatch_event_rule.simple_lambda_event_rule.name
+}
+
+resource "aws_lambda_permission" "allow_cloudwatch_to_call_simple_lambda" {
+  statement_id  = "AllowExecutionFromCloudWatch"
+  action        = "lambda:InvokeFunction"
+  function_name = local.function_name
+  principal     = "events.amazonaws.com"
+  source_arn    = aws_cloudwatch_event_rule.simple_lambda_event_rule.arn
+}

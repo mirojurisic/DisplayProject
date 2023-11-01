@@ -36,6 +36,7 @@ aws s3 cp <your directory path> s3://<your bucket name> –recursive
 
 ## 1) Lambda with Terraform
 Simple hello_world function that just prints text.
+Lambda is triggered by eventbringe event that is set to repeat every 2 minutes.
 ## 2) Apache on EC2 with Terraform
 Download simple website, store it in S3 bucket, spin up EC2 instance using Terraform and deploy it with webapp code from S3 code
 
