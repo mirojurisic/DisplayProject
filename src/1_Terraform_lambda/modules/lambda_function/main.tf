@@ -16,5 +16,10 @@ resource "aws_lambda_function" "simple_hello_world" {
   source_code_hash = filebase64sha256(var.path_to_artifact)
 
   runtime = var.runtime
+  environment {
+    variables = {
+      db_name = "${var.db_name}"
+    }
+  }
 
 }

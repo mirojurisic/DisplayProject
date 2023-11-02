@@ -5,3 +5,4 @@
 *.package-lock.json
 **/node_modules/*
 *.env
+src/6_Terraform_rds_node_js/infrastructure/env.tf

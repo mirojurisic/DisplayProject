@@ -37,3 +37,8 @@ variable "runtime" {
   description = "Lambda Runtime"
   type        = string
 }
+
+variable "db_name" {
+  description = "DynamoDB name "
+  type        = string
+}

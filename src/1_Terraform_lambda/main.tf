@@ -17,6 +17,7 @@ module "lambda_function" {
   memory_size         = local.memory_size
   timeout             = local.timeout
   runtime             = local.runtime
+  db_name             = local.dynamodb_name
 
 }
 resource "aws_cloudwatch_event_rule" "simple_lambda_event_rule" {
@@ -37,3 +38,28 @@ resource "aws_lambda_permission" "allow_cloudwatch_to_call_simple_lambda" {
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.simple_lambda_event_rule.arn
 }
+
+
+module "dynamodb_table" {
+  source   = "terraform-aws-modules/dynamodb-table/aws"
+  name     = local.dynamodb_name
+  hash_key = "user"
+
+  deletion_protection_enabled = false
+  billing_mode                = "PAY_PER_REQUEST"
+
+  attributes = [
+    {
+      name = "user"
+      type = "S"
+    }
+  ]
+
+
+
+  tags = {
+    Terraform   = "true"
+    Environment = "staging"
+  }
+}
+
