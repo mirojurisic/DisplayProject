@@ -21,8 +21,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy with rsync
-        run: rsync -avz -e "ssh " ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/students.asyncjs.today/dist/
-
+        run: rsync -avz -e "ssh " ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu
       - name: Restart Server
         uses: appleboy/ssh-action@master
         with:
@@ -33,7 +32,6 @@ jobs:
           script: |
           
             # Now we have got the access of EC2 and we will start the deploy .
-            cd /home/ubuntu/ &&
             git checkout main &&
             git fetch --all &&
             git reset --hard origin/main &&
